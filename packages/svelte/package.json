@@ -1,0 +1,46 @@
+{
+  "name": "@devsolux/imza-embed-svelte",
+  "version": "0.1.0",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "svelte-package -i src/",
+    "clean": "rimraf node_modules && rimraf src",
+    "check-exports": "attw --pack .",
+    "publint": "publint"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "svelte": "^4.0.0"
+  },
+  "devDependencies": {
+    "@devsolux/imza-embed": "*",
+    "@sveltejs/adapter-auto": "^3.2.4",
+    "@sveltejs/kit": "^2.5.25",
+    "@sveltejs/package": "^2.3.4",
+    "@sveltejs/vite-plugin-svelte": "^3.1.2",
+    "vite": "^5.4.2",
+    "vite-plugin-dts": "^4.1.0"
+  }
+}
